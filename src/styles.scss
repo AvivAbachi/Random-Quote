@@ -1,7 +1,6 @@
 body {
   overflow: hidden;
 }
-
 .App {
   display: flex;
   align-items: center;
@@ -10,7 +9,6 @@ body {
   height: 100vh;
   transition: background-color 0.75s ease;
 }
-
 .quotebox {
   max-width: 640px;
   padding: 1em;
@@ -42,7 +40,6 @@ body {
     }
   }
 }
-
 .credite {
   position: absolute;
   bottom: 2em;
@@ -50,10 +47,9 @@ body {
   animation: quoteboxIn ease-out forwards 0.6s 0.17s;
   opacity: 0;
 }
-
 @keyframes quoteboxIn {
   from {
-    transform: scale(0) translateX(0) translateY(0) rotate(0);
+    transform: scale(0) ;
     opacity: 0;
   }
   to {
@@ -67,7 +63,7 @@ body {
     opacity: 1;
   }
   to {
-    transform: scale(0.75) translateX(450px) translateY(-450px) rotate(45deg);
+    transform: scale(0.625) translateX(450px) translateY(-450px) rotate(45deg);
     opacity: 0;
   }
 }
