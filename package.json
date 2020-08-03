@@ -1,12 +1,8 @@
 {
   "name": "random-quote",
   "version": "1.0.0",
-  "description": "Random Quote Free Code Camp",
-  "keywords": [
-    "ffc",
-    "quote ",
-    "random quote"
-  ],
+  "description": "",
+  "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.30",

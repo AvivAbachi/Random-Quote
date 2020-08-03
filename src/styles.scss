@@ -42,10 +42,12 @@ body {
 }
 .credite {
   position: absolute;
-  bottom: 2em;
+  bottom: 3em;
   transform: scale(0);
-  animation: quoteboxIn ease-out forwards 0.6s 0.17s;
   opacity: 0;
+  transition:    0.6s ease;
+  transition-property: opacity,transform;
+  animation:   infinite 6s cubic-bezier(0.5, 0.5, 0.5, 1.5);
 }
 @keyframes quoteboxIn {
   from {
@@ -63,7 +65,14 @@ body {
     opacity: 1;
   }
   to {
-    transform: scale(0.625) translateX(450px) translateY(-450px) rotate(45deg);
     opacity: 0;
+  }
+}
+@keyframes hover {
+  0% ,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-36px);
   }
 }

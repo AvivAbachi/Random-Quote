@@ -65,9 +65,17 @@ const QuoteBox = React.memo(props => {
   };
 
   const changeAnimation = out => {
-    quoteBoxRef.current.style.animationName = out
-      ? "quoteboxOut"
-      : "quoteboxIn";
+    const creaditStyle = quoteBoxRef.current.style;
+    let randomDirection = () => (Math.random() > 0.5 ? 450 : -450);
+    let x = randomDirection();
+    let y = randomDirection();
+    let r = x === 450 ? 45 : -45;
+    out
+      ? (() => {
+          creaditStyle.transform = `scale(0.625) translateX(${x}px) translateY(${y}px) rotate(${r}deg)`;
+          creaditStyle.animationName = "quoteboxOut";
+        })()
+      : (creaditStyle.animationName = "quoteboxIn");
   };
 
   return (
@@ -79,9 +87,9 @@ const QuoteBox = React.memo(props => {
     >
       <Card.Body>
         <Card.Title id="text" className="quotebox__text">
-          <FontAwesomeIcon icon={faQuoteLeft} size="xs" />
+          {author && <FontAwesomeIcon icon={faQuoteLeft} size="xs" />}
           {text}
-          <FontAwesomeIcon icon={faQuoteRight} size="xs" />
+          {author && <FontAwesomeIcon icon={faQuoteRight} size="xs" />}
         </Card.Title>
         <Card.Text
           id="author"
@@ -116,8 +124,16 @@ const QuoteBox = React.memo(props => {
 });
 
 const Creadit = props => {
+  let creaditRef = useRef();
+  useEffect(() => {
+    const creaditStyle = creaditRef.current.style;
+    creaditStyle.opacity = 1;
+    creaditStyle.transform = "scale(1)";
+    setTimeout(() => (creaditStyle.animationName = "hover"), 900);
+  });
   return (
     <Button
+      ref={creaditRef}
       variant="light"
       className={"credite text-" + props.color}
       href="https://github.com/AvivAbachi"
