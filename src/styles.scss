@@ -1,0 +1,73 @@
+body {
+  overflow: hidden;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  transition: background-color 0.75s ease;
+}
+
+.quotebox {
+  max-width: 640px;
+  padding: 1em;
+  transform: scale(0);
+  animation: ease-out forwards 0.6s;
+  opacity: 0;
+  &__text {
+    line-height: 1.5;
+    text-align: justify;
+    svg {
+      opacity: 0.33;
+      &:nth-of-type(1) {
+        margin-right: 0.75em;
+      }
+      &:nth-of-type(2) {
+        margin-left: 0.75em;
+      }
+    }
+  }
+  &__author {
+    margin: 32px 0;
+    text-align: end;
+  }
+  &__buttons {
+    justify-content: space-between;
+    a:hover,
+    button {
+      color: white !important ;
+    }
+  }
+}
+
+.credite {
+  position: absolute;
+  bottom: 2em;
+  transform: scale(0);
+  animation: quoteboxIn ease-out forwards 0.6s 0.17s;
+  opacity: 0;
+}
+
+@keyframes quoteboxIn {
+  from {
+    transform: scale(0) translateX(0) translateY(0) rotate(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes quoteboxOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.75) translateX(450px) translateY(-450px) rotate(45deg);
+    opacity: 0;
+  }
+}
